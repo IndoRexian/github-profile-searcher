@@ -1,12 +1,11 @@
 import {
   Card,
   CardAction,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -16,14 +15,14 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-function UserCard({ data }: { data: object }) {
+function UserCard({ data }) {
   const [id, setID] = useState(0);
   const [userData, setUserData] = useState({});
   const [top4Active, setTop4Active] = useState([]);
   const username = data.login;
   useEffect(() => {
     console.log(id);
-    const search = async (id: number) => {
+    const search = async (id) => {
       //setLoader(true);
       const response = await fetch(`https://api.github.com/user/${id}`, {
         headers: {
@@ -40,7 +39,7 @@ function UserCard({ data }: { data: object }) {
       setUserData(result);
       //return result;
     };
-    const getMostActiveRepos = async (username: string) => {
+    const getMostActiveRepos = async (username) => {
       const response = await fetch(
         `https://api.github.com/users/${username}/repos?type=owner&sort=updated&direction=desc&per_page=4`,
         {

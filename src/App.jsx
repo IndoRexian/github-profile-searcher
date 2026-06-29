@@ -17,11 +17,11 @@ function App() {
   const [username, setUsername] = useState("");
   const [users, setUsers] = useState([]);
   const [totalUsers, setTotalUsers] = useState(-1);
-  const handleSearching = (value: string) => {
+  const handleSearching = (value) => {
     setUsername(value);
     console.log(value);
   };
-  const search = async (username: string) => {
+  const search = async (username) => {
     if (username.trim() == "") {
       setTotalUsers(-1);
       return;
